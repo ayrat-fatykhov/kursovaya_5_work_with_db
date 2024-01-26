@@ -23,6 +23,7 @@ password: str = 'skypropython29'
 def user_interface():
     print('Добро пожаловать!\nПрограмма собирает самые актуальные вакансии. Это может занять некоторое время...')
     db_commands: DBManager = DBManager(host, database, user, password)
+    db_commands.deleted_tables()
     db_commands.create_tables()
     db_commands.filled_companies(companies)
     hh_vacancies: HeadHunterAPI = HeadHunterAPI()
@@ -58,7 +59,6 @@ def user_interface():
             else:
                 print("Увы")
     print("\nУдачи при трудоустройстве!")
-    db_commands.deleted_tables()
 
 
 if __name__ == '__main__':
