@@ -21,9 +21,9 @@ class DBManager:
         ) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT COUNT(*) FROM companies")
-                counter_companies: tuple = cur.fetchone()
+                counter_companies = cur.fetchone()
                 cur.execute("SELECT COUNT(id_vacancy) FROM vacancies GROUP BY id_company")
-                counter_vacancies: tuple = cur.fetchone()
+                counter_vacancies = cur.fetchone()
         conn.close()
         return counter_companies[0], counter_vacancies[0]
 
@@ -40,7 +40,7 @@ class DBManager:
         ) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT * FROM vacancies")
-                all_vacancies: tuple = cur.fetchall()
+                all_vacancies = cur.fetchall()
         conn.close()
         return all_vacancies
 
@@ -57,7 +57,7 @@ class DBManager:
         ) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT AVG(salary_from) FROM vacancies")
-                avg_salary: tuple = cur.fetchone()
+                avg_salary = cur.fetchone()
         conn.close()
         return avg_salary[0]
 
@@ -74,9 +74,9 @@ class DBManager:
         ) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT AVG(salary_from) FROM vacancies")
-                avg_salary: tuple = cur.fetchone()
+                avg_salary = cur.fetchone()
                 cur.execute(f"SELECT * FROM vacancies WHERE salary_from > {avg_salary[0]}")
-                part_vacancies: tuple = cur.fetchall()
+                part_vacancies = cur.fetchall()
         conn.close()
         return part_vacancies
 
@@ -93,7 +93,7 @@ class DBManager:
         ) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT * FROM vacancies")
-                vacancies: tuple = cur.fetchall()
+                vacancies = cur.fetchall()
         conn.close()
         filtered_vacancies: list = []
         for vacancy in vacancies:
