@@ -12,4 +12,5 @@
 - Добавить Poetry (команда: poetry init);
 - Записать в bashrc переменную окружения SUPER_JOB_API_KEY (export SUPER_JOB_API_KEY="secret key");
 - Создать базу данных kursovaya5 в PostgreSQL (команда для терминала Linux Ubuntu: sudo su - postgres -c "createdb kursovaya5");
+- Прописать параметры подключения к базе данных в файле ".env.example"
 - Запустить python-файл main (путь: src/main.py).
