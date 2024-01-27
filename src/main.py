@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+
 from src.dbmanager import DBManager
 from src.hh_api import HeadHunterAPI
 from src.utils import hh_reformat_response, print_vacancies
@@ -13,11 +16,12 @@ companies: list[dict] = [{"name": "Сбер", "id": 3529},
                          {"name": "Tele2", "id": 4219},
                          {"name": "МТС", "id": 3776}]
 
-# Параметры для подкоючения к БД
-host: str = 'localhost'
-database: str = 'kursovaya5'
+# Параметры для подключения к БД
+load_dotenv()
+host: str = os.getenv('HOST')
+database: str = os.getenv('DATABASE')
 user: str = 'postgres'
-password: str = 'skypropython29'
+password: str = os.getenv('PASSWORD')
 
 
 def user_interface():
